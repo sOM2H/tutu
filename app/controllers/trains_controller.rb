@@ -1,28 +1,20 @@
 class TrainsController < ApplicationController
   before_action :set_train, only: [:show, :edit, :update, :destroy]
 
-  # GET /trains
-  # GET /trains.json
   def index
     @trains = Train.all
   end
 
-  # GET /trains/1
-  # GET /trains/1.json
   def show
   end
 
-  # GET /trains/new
   def new
     @train = Train.new
   end
 
-  # GET /trains/1/edit
   def edit
   end
 
-  # POST /trains
-  # POST /trains.json
   def create
     @train = Train.new(train_params)
 
@@ -37,8 +29,6 @@ class TrainsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /trains/1
-  # PATCH/PUT /trains/1.json
   def update
     respond_to do |format|
       if @train.update(train_params)
@@ -51,8 +41,6 @@ class TrainsController < ApplicationController
     end
   end
 
-  # DELETE /trains/1
-  # DELETE /trains/1.json
   def destroy
     @train.destroy
     respond_to do |format|
@@ -62,13 +50,12 @@ class TrainsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_train
       @train = Train.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def train_params
-      params.require(:train).permit(:title)
+      params.require(:train).permit(:number)
     end
 end
